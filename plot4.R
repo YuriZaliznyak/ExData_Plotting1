@@ -26,6 +26,6 @@ points(data2plot$datetime_row, data2plot$Sub_metering_3, type = "l", col = "blue
 legend("topright", col=c("black", "red", "blue"), lty = 1, bty= "n", 
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
-plot(data2plot$datetime_row, data2plot$Global_active_power, type = "l", xlab = "datetime", 
-     ylab = "Global_Reactive_Power")
+plot(data2plot$datetime_row, data2plot$Global_reactive_power, type = "l", xlab = "datetime", 
+     ylab = "Global_Reactive_Power", ylim = c(0, 0.5))
 dev.off()
