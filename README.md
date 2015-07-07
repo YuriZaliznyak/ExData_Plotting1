@@ -7,19 +7,30 @@ rows from 66637 to 69516 are to be read.
 
 data <- read.table("../household_power_consumption.txt", sep = ";", 
                    na.strings = "?", skip = 1)
+                   
 colnames(data) = c("Date", "Time", "Global_active_power", "Global_reactive_power", 
                    "Voltage", "Global_intensity", "Sub_metering_1", 
                    "Sub_metering_2", "Sub_metering_3")
+                   
 datetime_row <- strptime( paste(as.character(data$Time), as.character(data$Date)), 
                        format = "%H:%M:%S %d/%m/%Y")
+                       
 feb2_2007 <- strptime("2007-02-02 23:59:59", format = "%Y-%m-%d %H:%M:%S")
+
 feb1_2007 <- strptime("2007-01-31 23:59:59", format = "%Y-%m-%d %H:%M:%S")
+
 aa <- (datetime_row <= feb2_2007) & (datetime_row > feb1_2007)
+
 dt <- datetime_row[aa]
+
 dt <- dt[!is.na(dt)]
+
 data1 <- data[aa,]
+
 data1 <- data1[!is.na(data1$Date),]
+
 head(data1, 1)
+
 tail(data1, 1)
 
 
